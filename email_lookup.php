@@ -1,8 +1,6 @@
 <?php
-/*
- *HaveIBeenPwned Email Breach checker script by Professional#0001
- */
-$Node = $_GET['email'];
+//HaveIBeenPwned Email Breach checker script by Professional#0001
+$Target = $_GET['email'];
 function GetRequest($URL, $Headers)
 {
     $curl = curl_init($URL);
@@ -15,7 +13,7 @@ function GetRequest($URL, $Headers)
     curl_close($curl);
     return $Response;
 }
-$Breaches = json_decode(SendGetRequest("https://haveibeenpwned.com/api/v3/breachedaccount/$Node", array("hibp-api-key: <YOUR_API_KEY>", "user-agent: <YOUR_CUSTOM_AGENT>",)));
+$Breaches = json_decode(SendGetRequest("https://haveibeenpwned.com/api/v3/breachedaccount/$Target", array("hibp-api-key: <YOUR_API_KEY>", "user-agent: <YOUR_CUSTOM_AGENT>",)));
 foreach ($Breaches as $Breach) {
     print "Database Breach:" . $Breach['Name'] . "\n";
 }
