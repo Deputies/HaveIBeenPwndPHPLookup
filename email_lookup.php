@@ -1,5 +1,8 @@
 <?php
-//HaveIBeenPwned Email Breach checker script by Professional#0001
+/**
+ * @author Professional
+ * HaveIBeenPwned Email Breach checker script
+ */
 $Target = $_GET['email'];
 function GetRequest($URL, $Headers)
 {
